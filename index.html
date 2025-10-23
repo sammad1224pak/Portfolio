@@ -395,7 +395,7 @@
             transition: var(--transition);
         }
 
-      .profile-image {
+        .profile-image {
             width: 400px;
             height: 500px;
             background: var(--primary);
@@ -404,7 +404,6 @@
             justify-content: center;
             color: white;
             font-size: 1.5rem;
-            /* transition: var(--transition); */
             position: relative;
             overflow: hidden;
         }
@@ -512,9 +511,91 @@
             transition: width 1.5s ease;
         }
 
+        /* Projects Section */
+        .projects {
+            background: var(--card-bg);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .project-content p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .project-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 15px;
+            background: var(--primary);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .project-links a:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .project-links a i {
+            margin-right: 5px;
+        }
+
         /* Experience Section */
         .experience {
-            background: var(--card-bg);
+            background: var(--light);
         }
 
         .timeline {
@@ -608,7 +689,7 @@
 
         /* Education Section */
         .education {
-            background: var(--light);
+            background: var(--card-bg);
         }
 
         .education-content {
@@ -642,7 +723,7 @@
 
         /* Contact Section */
         .contact {
-            background: var(--card-bg);
+            background: var(--light);
         }
 
         .contact-content {
@@ -893,6 +974,10 @@
                 padding: 10px 20px;
                 font-size: 0.9rem;
             }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -906,6 +991,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#education">Education</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -936,7 +1022,7 @@
                 <p>I'm a passionate developer specializing in creating responsive websites and scalable applications using modern technologies.</p>
                 <div class="hero-btns">
                     <a href="#contact" class="btn">Get In Touch</a>
-                    <a href="#about" class="btn" style="background: transparent; color: var(--primary); border: 2px solid var(--primary);">Learn More</a>
+                    <a href="#projects" class="btn" style="background: transparent; color: var(--primary); border: 2px solid var(--primary);">View Projects</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -973,12 +1059,12 @@
                             <strong>Languages:</strong> English, Urdu
                         </div>
                     </div>
-                    <a href="#contact" class="btn" style="margin-top: 20px;">Contact Me</a>
+                    <a href="#projects" class="btn" style="margin-top: 20px;">View My Projects</a>
                 </div>
                 <div class="about-image">
                     <div class="profile-container">
                         <div class="profile-image">
-                          <img src="image (1).webp" alt="">
+                            <img src="image (1).webp" alt="Sammad Ul Hassan" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="profile-overlay">
                             <div class="profile-text">
@@ -1092,6 +1178,113 @@
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="80"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Personal Portfolio">
+                    </div>
+                    <div class="project-content">
+                        <h3>Personal Portfolio</h3>
+                        <p>A responsive portfolio website showcasing my skills, projects, and experience as a web developer.</p>
+                        <div class="project-links">
+                            <a href="https://sammad1224pak.github.io/Portfolio/" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="https://github.com/sammad1224pak/Portfolio" target="_blank">
+                                <i class="fab fa-github"></i> Source Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1061&q=80" alt="Coffee Shop Website">
+                    </div>
+                    <div class="project-content">
+                        <h3>Coffee Shop Website</h3>
+                        <p>A responsive website for a coffee shop with menu, location, and contact information.</p>
+                        <div class="project-links">
+                           
+                            </a>
+                            <a href="https://github.com/sammad1224pak?tab=repositories" target="_blank">
+                                <i class="fab fa-github"></i> Source Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Product Landing Page">
+                    </div>
+                    <div class="project-content">
+                        <h3>Product Landing Page</h3>
+                        <p>A modern product landing page with features, testimonials, and call-to-action sections.</p>
+                        <div class="project-links">
+                           
+                            </a>
+                            <a href="https://github.com/sammad1224pak?tab=repositories" target="_blank">
+                                <i class="fab fa-github"></i> Source Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Fitness Tracker App">
+                    </div>
+                    <div class="project-content">
+                        <h3>Fitness Tracker App</h3>
+                        <p>A mobile application to track workouts, set fitness goals, and monitor progress.</p>
+                        <div class="project-links">
+                           
+                            </a>
+                            <a href="https://github.com/sammad1224pak?tab=repositories" target="_blank">
+                                <i class="fab fa-github"></i> Source Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Recipe Gallery">
+                    </div>
+                    <div class="project-content">
+                        <h3>Recipe Gallery</h3>
+                        <p>A collection of recipes with search functionality, categories, and detailed instructions.</p>
+                        <div class="project-links">
+                            <a href="https://sammad1224pak.github.io/Recipe-Gallery/" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="https://github.com/sammad1224pak/Recipe-Gallery" target="_blank">
+                                <i class="fab fa-github"></i> Source Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="desxtop.jpeg" alt="Desktop Assistant">
+                    </div>
+                    <div class="project-content">
+                        <h3>Desktop Assistant</h3>
+                        <p>A desktop application that helps with daily tasks, reminders, and system management.</p>
+                        <div class="project-links">
+                           
+                            </a>
+                            <a href="https://github.com/sammad1224pak?tab=repositories" target="_blank">
+                                 Source Code
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -1349,7 +1542,4 @@
         }
     </script>
 </body>
-
 </html>
-
-
