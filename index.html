@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sammad Ul Hassan | Web Developer</title>
+    <title>Sammad Ul Hassan | Web & App Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -22,8 +22,8 @@
             --card-bg: white;
         }
 
-        /* Theme 1: Default Blue */
-        .theme-default {
+        /* Light Theme (Default) */
+        body.light-theme {
             --primary: #3498db;
             --primary-dark: #2980b9;
             --secondary: #2c3e50;
@@ -31,55 +31,21 @@
             --dark: #2c3e50;
             --bg-color: #f9f9f9;
             --text-color: #2c3e50;
-            --card-bg: white;
+            --card-bg: #ffffff;
+            --border-light: #e0e0e0;
         }
 
-        /* Theme 2: Dark Theme */
-        .theme-dark {
-            --primary: #9b59b6;
-            --primary-dark: #8e44ad;
-            --secondary: #34495e;
-            --light: #2c3e50;
+        /* Dark Theme */
+        body.dark-theme {
+            --primary: #ff9500;
+            --primary-dark: #e68900;
+            --secondary: #ecf0f1;
+            --light: #1a1a2e;
             --dark: #ecf0f1;
-            --bg-color: #1a1a2e;
-            --text-color: #ecf0f1;
-            --card-bg: #16213e;
-        }
-
-        /* Theme 3: Green Theme */
-        .theme-green {
-            --primary: #2ecc71;
-            --primary-dark: #27ae60;
-            --secondary: #16a085;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --bg-color: #f9f9f9;
-            --text-color: #2c3e50;
-            --card-bg: white;
-        }
-
-        /* Theme 4: Orange Theme */
-        .theme-orange {
-            --primary: #e67e22;
-            --primary-dark: #d35400;
-            --secondary: #e74c3c;
-            --light: #fdf2e9;
-            --dark: #2c3e50;
-            --bg-color: #fef9f7;
-            --text-color: #2c3e50;
-            --card-bg: white;
-        }
-
-        /* Theme 5: Purple Theme */
-        .theme-purple {
-            --primary: #9b59b6;
-            --primary-dark: #8e44ad;
-            --secondary: #34495e;
-            --light: #f4ecf7;
-            --dark: #2c3e50;
-            --bg-color: #faf8fb;
-            --text-color: #2c3e50;
-            --card-bg: white;
+            --bg-color: #0f0f0f;
+            --text-color: #e0e0e0;
+            --card-bg: #1e1e2e;
+            --border-light: #333333;
         }
 
         * {
@@ -164,14 +130,14 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
+            background: var(--card-bg);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             transition: var(--transition);
         }
 
         header.scrolled {
             padding: 10px 0;
-            background: rgba(255, 255, 255, 0.98);
+            background: var(--card-bg);
         }
 
         .navbar {
@@ -229,76 +195,48 @@
             width: 100%;
         }
 
-        .theme-switcher {
-            position: relative;
-            cursor: pointer;
-        }
-
-        .theme-icon {
-            font-size: 1.2rem;
-            color: var(--dark);
-            transition: var(--transition);
-        }
-
-        .theme-icon:hover {
-            color: var(--primary);
-            transform: rotate(30deg);
-        }
-
-        .theme-options {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: var(--card-bg);
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            padding: 10px;
-            display: none;
-            flex-wrap: wrap;
-            width: 150px;
-            z-index: 1001;
-        }
-
-        .theme-options.active {
+        /* Professional Dark/Light Toggle */
+        .theme-toggle {
             display: flex;
-        }
-
-        .theme-option {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            margin: 5px;
+            align-items: center;
+            gap: 5px;
+            background: var(--bg-color);
+            padding: 5px;
+            border-radius: 40px;
+            border: 1px solid var(--border-light);
             cursor: pointer;
-            border: 2px solid transparent;
             transition: var(--transition);
+            margin-left: 30px;
         }
 
-        .theme-option:hover {
-            transform: scale(1.1);
+        .theme-toggle:hover {
+            border-color: var(--primary);
         }
 
-        .theme-option.active {
-            border-color: var(--dark);
+        .theme-toggle-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            cursor: pointer;
+            background: transparent;
         }
 
-        .theme-default-option {
-            background: linear-gradient(135deg, #3498db 50%, #2c3e50 50%);
+        .theme-toggle-btn i {
+            font-size: 16px;
+            color: var(--text-color);
         }
 
-        .theme-dark-option {
-            background: linear-gradient(135deg, #9b59b6 50%, #1a1a2e 50%);
+        .theme-toggle-btn.active {
+            background: var(--primary);
+            box-shadow: 0 0 10px var(--primary);
         }
 
-        .theme-green-option {
-            background: linear-gradient(135deg, #2ecc71 50%, #16a085 50%);
-        }
-
-        .theme-orange-option {
-            background: linear-gradient(135deg, #e67e22 50%, #e74c3c 50%);
-        }
-
-        .theme-purple-option {
-            background: linear-gradient(135deg, #9b59b6 50%, #34495e 50%);
+        .theme-toggle-btn.active i {
+            color: white;
         }
 
         .hamburger {
@@ -408,6 +346,12 @@
             overflow: hidden;
         }
 
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .profile-image::before {
             content: '';
             position: absolute;
@@ -422,7 +366,6 @@
 
         .profile-container:hover .profile-image {
             transform: scale(1.05);
-            filter: blur(2px);
         }
 
         .profile-container:hover .profile-image::before {
@@ -456,6 +399,17 @@
         .profile-text h3 {
             color: white;
             margin-bottom: 10px;
+        }
+
+        .gpa-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 15px;
         }
 
         /* Skills Section */
@@ -511,17 +465,80 @@
             transition: width 1.5s ease;
         }
 
-        /* Projects Section */
-        .projects {
-            background: var(--card-bg);
+        /* Projects Section - Horizontal Scroll - 1 Row Only */
+        .projects-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .projects-scroll-container {
+            position: relative;
+            margin: 20px 0;
         }
 
         .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            display: flex;
             gap: 30px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 10px 5px 30px 5px;
+            scrollbar-width: thin;
+            cursor: grab;
         }
 
+        .projects-grid:active {
+            cursor: grabbing;
+        }
+
+        .projects-grid::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .projects-grid::-webkit-scrollbar-track {
+            background: var(--border-light);
+            border-radius: 10px;
+        }
+
+        .projects-grid::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        .scroll-btn {
+            position: absolute;
+            top: 45%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 10;
+            color: var(--primary);
+            font-size: 18px;
+        }
+
+        .scroll-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .scroll-left {
+            left: -20px;
+        }
+
+        .scroll-right {
+            right: -20px;
+        }
+
+        /* Project Card - Image Expand on Hover (Like Your Example) */
         .project-card {
             background: var(--card-bg);
             border-radius: 10px;
@@ -529,14 +546,18 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             position: relative;
+            min-width: 320px;
+            max-width: 320px;
+            flex-shrink: 0;
         }
 
         .project-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         }
 
         .project-image {
-            height: 200px;
+            height: 220px;
             overflow: hidden;
             position: relative;
         }
@@ -545,11 +566,12 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: var(--transition);
+            transition: all 0.5s ease-in-out;
         }
 
+        /* Image Expand Effect on Hover - Like Your Example */
         .project-card:hover .project-image img {
-            transform: scale(1.1);
+            transform: scale(1.15);
         }
 
         .project-content {
@@ -564,11 +586,14 @@
         .project-content p {
             margin-bottom: 15px;
             color: var(--text-color);
+            font-size: 14px;
+            line-height: 1.5;
         }
 
         .project-links {
             display: flex;
             gap: 10px;
+            flex-wrap: wrap;
         }
 
         .project-links a {
@@ -793,7 +818,7 @@
         .form-control {
             width: 100%;
             padding: 12px 15px;
-            border: 1px solid #ddd;
+            border: 1px solid var(--border-light);
             border-radius: 5px;
             font-family: 'Poppins', sans-serif;
             transition: var(--transition);
@@ -959,6 +984,14 @@
                 margin-top: 20px;
                 justify-content: center;
             }
+            
+            .scroll-btn {
+                display: none;
+            }
+            
+            .project-card {
+                min-width: 280px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -975,13 +1008,13 @@
                 font-size: 0.9rem;
             }
             
-            .projects-grid {
-                grid-template-columns: 1fr;
+            .project-card {
+                min-width: 260px;
             }
         }
     </style>
 </head>
-<body class="theme-default">
+<body class="light-theme">
     <!-- Header -->
     <header id="header">
         <div class="container">
@@ -995,14 +1028,12 @@
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#education">Education</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li class="theme-switcher">
-                        <i class="fas fa-palette theme-icon"></i>
-                        <div class="theme-options">
-                            <div class="theme-option theme-default-option active" data-theme="theme-default"></div>
-                            <div class="theme-option theme-dark-option" data-theme="theme-dark"></div>
-                            <div class="theme-option theme-green-option" data-theme="theme-green"></div>
-                            <div class="theme-option theme-orange-option" data-theme="theme-orange"></div>
-                            <div class="theme-option theme-purple-option" data-theme="theme-purple"></div>
+                    <li class="theme-toggle">
+                        <div class="theme-toggle-btn active" data-theme="light">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="theme-toggle-btn" data-theme="dark">
+                            <i class="fas fa-moon"></i>
                         </div>
                     </li>
                 </ul>
@@ -1018,8 +1049,8 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Sammad Ul Hassan</h1>
-                <h2>Web & App Developer</h2>
-                <p>I'm a passionate developer specializing in creating responsive websites and scalable applications using modern technologies.</p>
+                <h2>Web & App Developer | AI/ML Enthusiast</h2>
+                <p>Computer Science student (8th Semester, CGPA: 3.38/4) specializing in Web development, Application development, Database administration, and AI/ML.</p>
                 <div class="hero-btns">
                     <a href="#contact" class="btn">Get In Touch</a>
                     <a href="#projects" class="btn" style="background: transparent; color: var(--primary); border: 2px solid var(--primary);">View Projects</a>
@@ -1043,28 +1074,29 @@
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>As a proficient Front End Developer, database administrator, and App Developer, I specialize in developing websites using HTML, CSS, and JavaScript, and building scalable and efficient applications using Java and Kotlin, ensuring reliability and performance.</p>
-                    <p>I'm currently pursuing a B.S. in Computer Science at Quaid-e-Awam University of Engineering, Science and Technology, and I'm passionate about creating digital solutions that make a difference.</p>
+                    <p>As a proficient Front End Developer, Database Administrator, and App Developer, I specialize in developing websites using HTML, CSS, JavaScript, PHP, and React, and building scalable applications using Java, Kotlin, and Flutter.</p>
+                    <p>I'm currently in my 8th semester of B.S. Computer Science at Quaid-e-Awam University of Engineering, Science and Technology (CGPA: 3.38/4), and I'm passionate about creating digital solutions that make a difference.</p>
                     <div class="about-details">
                         <div class="detail-item">
-                            <strong>Location:</strong> Newabshah, Sindh
+                            <strong>📍 Location:</strong> Nawabshah, Sindh, Pakistan
                         </div>
                         <div class="detail-item">
-                            <strong>Email:</strong> sammadulhassan02@gmail.com
+                            <strong>📧 Email:</strong> sammadulhassan02@gmail.com
                         </div>
                         <div class="detail-item">
-                            <strong>Phone:</strong> 03175212244
+                            <strong>📞 Phone:</strong> 03173212244
                         </div>
                         <div class="detail-item">
-                            <strong>Languages:</strong> English, Urdu
+                            <strong>🎓 CGPA:</strong> 3.38/4
                         </div>
                     </div>
+                    <span class="gpa-badge">🌟 8th Semester Student</span>
                     <a href="#projects" class="btn" style="margin-top: 20px;">View My Projects</a>
                 </div>
                 <div class="about-image">
                     <div class="profile-container">
                         <div class="profile-image">
-                            <img src="image (1).webp" alt="Sammad Ul Hassan" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="image (1).webp" alt="Sammad Ul Hassan">
                         </div>
                         <div class="profile-overlay">
                             <div class="profile-text">
@@ -1096,36 +1128,15 @@
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>HTML/CSS</span>
-                            <span>80%</span>
+                            <span>85%</span>
                         </div>
                         <div class="skill-bar">
-                            <div class="skill-progress" data-width="80"></div>
+                            <div class="skill-progress" data-width="85"></div>
                         </div>
                     </div>
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>JavaScript</span>
-                            <span>70%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="70"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>React</span>
-                            <span>60%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="60"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>App Development</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Java</span>
                             <span>75%</span>
                         </div>
                         <div class="skill-bar">
@@ -1134,16 +1145,7 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-info">
-                            <span>Kotlin</span>
-                            <span>70%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="70"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>C#</span>
+                            <span>React/PHP</span>
                             <span>65%</span>
                         </div>
                         <div class="skill-bar">
@@ -1152,10 +1154,10 @@
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Database Administration</h3>
+                    <h3>App Development</h3>
                     <div class="skill-item">
                         <div class="skill-info">
-                            <span>MySQL</span>
+                            <span>Java/Kotlin</span>
                             <span>75%</span>
                         </div>
                         <div class="skill-bar">
@@ -1164,7 +1166,37 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-info">
-                            <span>SQL Server</span>
+                            <span>Flutter</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="65"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>C#</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="70"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Database & AI/ML</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>MySQL/SQL Server</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Python</span>
                             <span>70%</span>
                         </div>
                         <div class="skill-bar">
@@ -1173,11 +1205,11 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-info">
-                            <span>Database Design</span>
-                            <span>80%</span>
+                            <span>YOLOv8/AI Basics</span>
+                            <span>60%</span>
                         </div>
                         <div class="skill-bar">
-                            <div class="skill-progress" data-width="80"></div>
+                            <div class="skill-progress" data-width="60"></div>
                         </div>
                     </div>
                 </div>
@@ -1185,108 +1217,116 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects Section - Horizontal Scroll 1 Row -->
     <section id="projects" class="projects">
         <div class="container">
             <h2 class="section-title">My Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Personal Portfolio">
+            <div class="projects-scroll-container">
+                <div class="scroll-btn scroll-left" id="scrollLeft">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="projects-grid" id="projectsGrid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500" alt="Portfolio">
+                        </div>
+                        <div class="project-content">
+                            <h3>Personal Portfolio</h3>
+                            <p>Responsive portfolio website showcasing my skills, projects, and experience.</p>
+                            <div class="project-links">
+                                <a href="https://sammad1224pak.github.io/Portfolio/" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
+                                <a href="https://github.com/sammad1224pak/Portfolio" target="_blank"><i class="fab fa-github"></i> Code</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="project-content">
-                        <h3>Personal Portfolio</h3>
-                        <p>A responsive portfolio website showcasing my skills, projects, and experience as a web developer.</p>
-                        <div class="project-links">
-                            <a href="https://sammad1224pak.github.io/Portfolio/" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                            <a href="https://github.com/sammad1224pak/Portfolio" target="_blank">
-                                <i class="fab fa-github"></i> Source Code
-                            </a>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=500" alt="Desktop Assistant">
+                        </div>
+                        <div class="project-content">
+                            <h3>Desktop Assistant</h3>
+                            <p>Smart desktop assistant for executing commands, opening apps, and system tasks.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/sammad1224pak" target="_blank"><i class="fab fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500" alt="Recipe Gallery">
+                        </div>
+                        <div class="project-content">
+                            <h3>Recipe Gallery</h3>
+                            <p>Recipe website with categorized recipes, search, and clean UI.</p>
+                            <div class="project-links">
+                                <a href="https://sammad1224pak.github.io/Recipe-Gallery/" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
+                                <a href="https://github.com/sammad1224pak/Recipe-Gallery" target="_blank"><i class="fab fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=500" alt="School Management">
+                        </div>
+                        <div class="project-content">
+                            <h3>School Management System</h3>
+                            <p>System with student records, teacher portal, and admin dashboard.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/sammad1224pak" target="_blank"><i class="fab fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=500" alt="Coffee Shop">
+                        </div>
+                        <div class="project-content">
+                            <h3>Coffee Shop Website</h3>
+                            <p>Fully responsive coffee shop website with menu and product listings.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/sammad1224pak" target="_blank"><i class="fab fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500" alt="Health Monitor">
+                        </div>
+                        <div class="project-content">
+                            <h3>Health Monitoring App</h3>
+                            <p>Health app to check vitals and track activity with Flutter & SQLite.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/sammad1224pak" target="_blank"><i class="fab fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=500" alt="Hazard Detection">
+                        </div>
+                        <div class="project-content">
+                            <h3>Real-time Hazard Detection</h3>
+                            <p>YOLOv8 model for real-time object detection and safety monitoring.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/sammad1224pak" target="_blank"><i class="fab fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?w=500" alt="Product Landing">
+                        </div>
+                        <div class="project-content">
+                            <h3>Product Landing Page</h3>
+                            <p>Modern landing page with features and call-to-action sections.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/sammad1224pak" target="_blank"><i class="fab fa-github"></i> Code</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1061&q=80" alt="Coffee Shop Website">
-                    </div>
-                    <div class="project-content">
-                        <h3>Coffee Shop Website</h3>
-                        <p>A responsive website for a coffee shop with menu, location, and contact information.</p>
-                        <div class="project-links">
-                           
-                            </a>
-                            <a href="https://github.com/sammad1224pak?tab=repositories" target="_blank">
-                                <i class="fab fa-github"></i> Source Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Product Landing Page">
-                    </div>
-                    <div class="project-content">
-                        <h3>Product Landing Page</h3>
-                        <p>A modern product landing page with features, testimonials, and call-to-action sections.</p>
-                        <div class="project-links">
-                           
-                            </a>
-                            <a href="https://github.com/sammad1224pak?tab=repositories" target="_blank">
-                                <i class="fab fa-github"></i> Source Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Fitness Tracker App">
-                    </div>
-                    <div class="project-content">
-                        <h3>Fitness Tracker App</h3>
-                        <p>A mobile application to track workouts, set fitness goals, and monitor progress.</p>
-                        <div class="project-links">
-                           
-                            </a>
-                            <a href="https://github.com/sammad1224pak?tab=repositories" target="_blank">
-                                <i class="fab fa-github"></i> Source Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Recipe Gallery">
-                    </div>
-                    <div class="project-content">
-                        <h3>Recipe Gallery</h3>
-                        <p>A collection of recipes with search functionality, categories, and detailed instructions.</p>
-                        <div class="project-links">
-                            <a href="https://sammad1224pak.github.io/Recipe-Gallery/" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                            <a href="https://github.com/sammad1224pak/Recipe-Gallery" target="_blank">
-                                <i class="fab fa-github"></i> Source Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Desktop Assistant" alt="Desktop Assistant">
-                    </div>
-                    <div class="project-content">
-                        <h3>Desktop Assistant</h3>
-                        <p>A desktop application that helps with daily tasks, reminders, and system management.</p>
-                        <div class="project-links">
-                           
-                            </a>
-                            <a href="https://github.com/sammad1224pak?tab=repositories" target="_blank">
-                                 Source Code
-                            </a>
-                        </div>
-                    </div>
+                <div class="scroll-btn scroll-right" id="scrollRight">
+                    <i class="fas fa-chevron-right"></i>
                 </div>
             </div>
         </div>
@@ -1300,13 +1340,19 @@
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <h3>Front End Developer</h3>
-                        <p>I have experience of almost 6 months at Front End Development and App Development.</p>
+                        <p>6+ months experience in Front End Development and App Development.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <h3>Desktop Application Developer</h3>
-                        <p>I recently designed a Travel Agency as a University project with C# and Database.</p>
+                        <p>Travel Agency application using C# and Database management.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>AI/ML - Hazard Detection</h3>
+                        <p>Real-time hazard detection using YOLOv8 model training.</p>
                     </div>
                 </div>
             </div>
@@ -1319,15 +1365,15 @@
             <h2 class="section-title">Education</h2>
             <div class="education-content">
                 <div class="education-item">
-                    <h3>B.S Computer Science</h3>
-                    <div class="date">2022 - Present</div>
+                    <h3>B.S Computer Science (BSCS)</h3>
+                    <div class="date">2022 - 2026 (8th Semester)</div>
                     <p>Quaid-e-Awam University of Engineering, Science and Technology</p>
-                    <p>Batch 22</p>
+                    <p>CGPA: 3.38/4 | Batch 22</p>
                 </div>
                 <div class="education-item">
-                    <h3>Intermediate</h3>
+                    <h3>Higher Secondary School (XII)</h3>
                     <div class="date">2021</div>
-                    <p>Government Boys Degree College Rawabshah</p>
+                    <p>Government Boys Degree College Nawabshah</p>
                 </div>
             </div>
         </div>
@@ -1340,39 +1386,29 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div class="contact-details">
                             <h3>Location</h3>
-                            <p>Newabshah, Sindh</p>
+                            <p>Nawabshah, Sindh, Pakistan</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                         <div class="contact-details">
                             <h3>Email</h3>
                             <p>sammadulhassan02@gmail.com</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
                         <div class="contact-details">
                             <h3>Phone</h3>
-                            <p>03175212244</p>
+                            <p>03173212244</p>
                         </div>
                     </div>
                     <div class="social-links">
-                        <a href="https://linkedin.com/in/sammadulhassan-siddiqui-49b85a347" target="_blank">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://github.com/sammad1224pak" target="_blank">
-                            <i class="fab fa-github"></i>
-                        </a>
+                        <a href="https://linkedin.com/in/sammadulhassan-siddiqui-49b85a347" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/sammad1224pak" target="_blank"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 <div class="contact-form">
@@ -1402,16 +1438,12 @@
             <div class="footer-content">
                 <div class="footer-logo">Sammad<span> Siddiqui</span></div>
                 <div class="social-links">
-                    <a href="https://linkedin.com/in/sammadulhassan-siddiqui-49b85a347" target="_blank">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://github.com/sammad1224pak" target="_blank">
-                        <i class="fab fa-github"></i>
-                    </a>
+                    <a href="https://linkedin.com/in/sammadulhassan-siddiqui-49b85a347" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/sammad1224pak" target="_blank"><i class="fab fa-github"></i></a>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 Sammad Ul Hassan. All Rights Reserved.</p>
+                
             </div>
         </div>
     </footer>
@@ -1427,7 +1459,6 @@
             hamburger.querySelector('i').classList.toggle('fa-times');
         });
 
-        // Close mobile menu when clicking on a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
@@ -1446,14 +1477,13 @@
             }
         });
 
-        // Animate skill bars on scroll
+        // Animate skill bars
         const skillBars = document.querySelectorAll('.skill-progress');
         
         function animateSkillBars() {
             skillBars.forEach(bar => {
                 const barPosition = bar.getBoundingClientRect().top;
                 const screenPosition = window.innerHeight / 1.3;
-                
                 if (barPosition < screenPosition) {
                     const width = bar.getAttribute('data-width');
                     bar.style.width = width + '%';
@@ -1461,21 +1491,19 @@
             });
         }
 
-        // Animate timeline items on scroll
+        // Animate timeline items
         const timelineItems = document.querySelectorAll('.timeline-item');
         
         function animateTimelineItems() {
             timelineItems.forEach(item => {
                 const itemPosition = item.getBoundingClientRect().top;
                 const screenPosition = window.innerHeight / 1.3;
-                
                 if (itemPosition < screenPosition) {
                     item.classList.add('visible');
                 }
             });
         }
 
-        // Initialize animations on load and scroll
         window.addEventListener('load', () => {
             animateSkillBars();
             animateTimelineItems();
@@ -1493,54 +1521,77 @@
             this.reset();
         });
 
-        // Theme Switcher Functionality
-        const themeIcon = document.querySelector('.theme-icon');
-        const themeOptions = document.querySelector('.theme-options');
-        const themeOptionsList = document.querySelectorAll('.theme-option');
+        // Theme Toggle
+        const themeBtns = document.querySelectorAll('.theme-toggle-btn');
         
-        themeIcon.addEventListener('click', () => {
-            themeOptions.classList.toggle('active');
-        });
-
-        // Close theme options when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.theme-switcher')) {
-                themeOptions.classList.remove('active');
-            }
-        });
-
-        // Change theme
-        themeOptionsList.forEach(option => {
-            option.addEventListener('click', () => {
-                const selectedTheme = option.getAttribute('data-theme');
-                document.body.className = selectedTheme;
-                
-                // Update active theme option
-                themeOptionsList.forEach(opt => opt.classList.remove('active'));
-                option.classList.add('active');
-                
-                // Close theme options
-                themeOptions.classList.remove('active');
-                
-                // Save theme preference to localStorage
-                localStorage.setItem('selectedTheme', selectedTheme);
+        themeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const theme = btn.getAttribute('data-theme');
+                if (theme === 'light') {
+                    document.body.classList.remove('dark-theme');
+                    document.body.classList.add('light-theme');
+                } else {
+                    document.body.classList.remove('light-theme');
+                    document.body.classList.add('dark-theme');
+                }
+                themeBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                localStorage.setItem('portfolioTheme', theme);
             });
         });
 
-        // Load saved theme from localStorage
-        const savedTheme = localStorage.getItem('selectedTheme');
-        if (savedTheme) {
-            document.body.className = savedTheme;
-            
-            // Update active theme option
-            themeOptionsList.forEach(option => {
-                option.classList.remove('active');
-                if (option.getAttribute('data-theme') === savedTheme) {
-                    option.classList.add('active');
-                }
+        const savedTheme = localStorage.getItem('portfolioTheme');
+        if (savedTheme === 'dark') {
+            document.body.classList.remove('light-theme');
+            document.body.classList.add('dark-theme');
+            document.querySelector('.theme-toggle-btn[data-theme="dark"]')?.classList.add('active');
+            document.querySelector('.theme-toggle-btn[data-theme="light"]')?.classList.remove('active');
+        }
+
+        // Horizontal Scroll for Projects (1 Row)
+        const projectsGrid = document.getElementById('projectsGrid');
+        const scrollLeftBtn = document.getElementById('scrollLeft');
+        const scrollRightBtn = document.getElementById('scrollRight');
+
+        if (scrollLeftBtn && scrollRightBtn && projectsGrid) {
+            scrollLeftBtn.addEventListener('click', () => {
+                projectsGrid.scrollBy({ left: -350, behavior: 'smooth' });
+            });
+
+            scrollRightBtn.addEventListener('click', () => {
+                projectsGrid.scrollBy({ left: 350, behavior: 'smooth' });
+            });
+
+            // Mouse drag scroll
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            projectsGrid.addEventListener('mousedown', (e) => {
+                isDown = true;
+                projectsGrid.style.cursor = 'grabbing';
+                startX = e.pageX - projectsGrid.offsetLeft;
+                scrollLeft = projectsGrid.scrollLeft;
+            });
+
+            projectsGrid.addEventListener('mouseleave', () => {
+                isDown = false;
+                projectsGrid.style.cursor = 'grab';
+            });
+
+            projectsGrid.addEventListener('mouseup', () => {
+                isDown = false;
+                projectsGrid.style.cursor = 'grab';
+            });
+
+            projectsGrid.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - projectsGrid.offsetLeft;
+                const walk = (x - startX) * 2;
+                projectsGrid.scrollLeft = scrollLeft - walk;
             });
         }
     </script>
 </body>
 </html>
-
