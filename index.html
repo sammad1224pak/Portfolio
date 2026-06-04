@@ -5,53 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sammad Ul Hassan | Web & App Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #3498db;
-            --primary-dark: #2980b9;
-            --secondary: #2c3e50;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --gray: #95a5a6;
-            --success: #2ecc71;
-            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
-            --bg-color: #f9f9f9;
-            --text-color: #2c3e50;
-            --card-bg: white;
-        }
-
-        /* Light Theme (Default) */
-        body.light-theme {
-            --primary: #3498db;
-            --primary-dark: #2980b9;
-            --secondary: #2c3e50;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --bg-color: #f9f9f9;
-            --text-color: #2c3e50;
-            --card-bg: #ffffff;
-            --border-light: #e0e0e0;
-        }
-
-        /* Dark Theme */
-        body.dark-theme {
-            --primary: #ff9500;
-            --primary-dark: #e68900;
-            --secondary: #ecf0f1;
-            --light: #1a1a2e;
-            --dark: #ecf0f1;
-            --bg-color: #0f0f0f;
-            --text-color: #e0e0e0;
-            --card-bg: #1e1e2e;
-            --border-light: #333333;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        /* Light Theme - Premium & Contrast */
+        body.light-theme {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #60a5fa;
+            --secondary: #0f172a;
+            --accent: #10b981;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --bg-gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            --bg-color: #f1f5f9;
+            --text-color: #0f172a;
+            --card-bg: #ffffff;
+            --card-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.1);
+            --border-light: #e2e8f0;
+            --glow: 0 0 15px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Dark Theme - Premium & Contrast */
+        body.dark-theme {
+            --primary: #f59e0b;
+            --primary-dark: #d97706;
+            --primary-light: #fbbf24;
+            --secondary: #f1f5f9;
+            --accent: #34d399;
+            --light: #1e293b;
+            --dark: #f8fafc;
+            --bg-gradient: linear-gradient(135deg, #f59e0b 0%, #ec4899 100%);
+            --bg-color: #0f172a;
+            --text-color: #f1f5f9;
+            --card-bg: #1e293b;
+            --card-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.4);
+            --border-light: #334155;
+            --glow: 0 0 20px rgba(245, 158, 11, 0.5);
         }
 
         html {
@@ -62,16 +57,15 @@
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            background-color: var(--bg-color);
+            background: var(--bg-color);
             overflow-x: hidden;
-            transition: var(--transition);
+            transition: all 0.3s ease;
         }
 
         h1, h2, h3, h4, h5 {
             font-family: 'Raleway', sans-serif;
             font-weight: 700;
             margin-bottom: 1rem;
-            color: var(--secondary);
         }
 
         .container {
@@ -82,48 +76,72 @@
         }
 
         section {
-            padding: 80px 0;
+            padding: 100px 0;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             position: relative;
+            font-size: 2.5rem;
+            background: var(--bg-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
+            width: 80px;
             height: 4px;
-            background: var(--primary);
+            background: var(--bg-gradient);
             border-radius: 2px;
         }
 
         .btn {
             display: inline-block;
-            padding: 12px 30px;
-            background: var(--primary);
+            padding: 12px 32px;
+            background: var(--bg-gradient);
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 50px;
             cursor: pointer;
             font-size: 1rem;
-            font-weight: 500;
-            transition: var(--transition);
+            font-weight: 600;
+            transition: all 0.3s ease;
             text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .btn:hover {
-            background: var(--primary-dark);
             transform: translateY(-3px);
-            box-shadow: var(--shadow);
+            box-shadow: var(--glow);
         }
 
-        /* Header & Navigation */
+        /* Header */
         header {
             position: fixed;
             top: 0;
@@ -131,13 +149,14 @@
             width: 100%;
             z-index: 1000;
             background: var(--card-bg);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            border-bottom: 1px solid var(--border-light);
         }
 
         header.scrolled {
             padding: 10px 0;
-            background: var(--card-bg);
+            box-shadow: var(--card-shadow);
         }
 
         .navbar {
@@ -149,13 +168,12 @@
 
         .logo {
             font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--secondary);
+            font-weight: 800;
             text-decoration: none;
-        }
-
-        .logo span {
-            color: var(--primary);
+            background: var(--bg-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .nav-links {
@@ -165,14 +183,14 @@
         }
 
         .nav-links li {
-            margin-left: 30px;
+            margin-left: 35px;
         }
 
         .nav-links a {
-            color: var(--dark);
+            color: var(--text-color);
             text-decoration: none;
             font-weight: 500;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             position: relative;
         }
 
@@ -187,52 +205,46 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--primary);
-            transition: var(--transition);
+            background: var(--bg-gradient);
+            transition: width 0.3s ease;
         }
 
         .nav-links a:hover::after {
             width: 100%;
         }
 
-        /* Professional Dark/Light Toggle */
+        /* Theme Toggle */
         .theme-toggle {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
             background: var(--bg-color);
             padding: 5px;
-            border-radius: 40px;
+            border-radius: 60px;
             border: 1px solid var(--border-light);
+            margin-left: 35px;
             cursor: pointer;
-            transition: var(--transition);
-            margin-left: 30px;
-        }
-
-        .theme-toggle:hover {
-            border-color: var(--primary);
         }
 
         .theme-toggle-btn {
-            width: 32px;
-            height: 32px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             cursor: pointer;
-            background: transparent;
+            font-size: 18px;
         }
 
         .theme-toggle-btn i {
-            font-size: 16px;
             color: var(--text-color);
         }
 
         .theme-toggle-btn.active {
-            background: var(--primary);
-            box-shadow: 0 0 10px var(--primary);
+            background: var(--bg-gradient);
+            box-shadow: var(--glow);
         }
 
         .theme-toggle-btn.active i {
@@ -242,16 +254,28 @@
         .hamburger {
             display: none;
             cursor: pointer;
+            font-size: 24px;
+            color: var(--text-color);
         }
 
         /* Hero Section */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, var(--light) 0%, var(--primary) 100%);
             position: relative;
             overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, var(--primary-light) 0%, transparent 70%);
+            opacity: 0.15;
         }
 
         .hero-content {
@@ -260,47 +284,53 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin-bottom: 20px;
-            line-height: 1.2;
-            opacity: 0;
+            background: var(--bg-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             animation: fadeInUp 1s ease forwards;
+            opacity: 0;
         }
 
         .hero h2 {
             font-size: 1.8rem;
             color: var(--primary);
             margin-bottom: 20px;
-            opacity: 0;
             animation: fadeInUp 1s ease 0.3s forwards;
+            opacity: 0;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 30px;
-            opacity: 0;
+            color: var(--text-color);
+            opacity: 0.9;
             animation: fadeInUp 1s ease 0.6s forwards;
+            opacity: 0;
         }
 
         .hero-btns {
-            opacity: 0;
             animation: fadeInUp 1s ease 0.9s forwards;
+            opacity: 0;
+        }
+
+        .hero-btns .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .hero-btns .btn-secondary:hover {
+            background: var(--bg-gradient);
+            color: white;
+            border-color: transparent;
         }
 
         .hero-btns .btn {
             margin-right: 15px;
             margin-bottom: 10px;
-        }
-
-        .hero-image {
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 40%;
-            max-width: 500px;
-            opacity: 0;
-            animation: fadeInRight 1s ease 1.2s forwards;
         }
 
         /* About Section */
@@ -311,7 +341,7 @@
         .about-content {
             display: flex;
             align-items: center;
-            gap: 50px;
+            gap: 60px;
         }
 
         .about-text {
@@ -321,28 +351,26 @@
         .about-image {
             flex: 1;
             text-align: center;
-            position: relative;
         }
 
         .profile-container {
             position: relative;
             display: inline-block;
-            border-radius: 20px;
+            border-radius: 30px;
             overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
+            box-shadow: var(--card-shadow);
+            transition: all 0.5s ease;
+        }
+
+        .profile-container:hover {
+            transform: scale(1.02);
+            box-shadow: var(--glow);
         }
 
         .profile-image {
-            width: 400px;
-            height: 500px;
-            background: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            position: relative;
+            width: 380px;
+            height: 480px;
+            background: var(--bg-gradient);
             overflow: hidden;
         }
 
@@ -350,63 +378,44 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
-        .profile-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .profile-container:hover .profile-image {
-            transform: scale(1.05);
-        }
-
-        .profile-container:hover .profile-image::before {
-            opacity: 1;
+        .profile-container:hover .profile-image img {
+            transform: scale(1.08);
         }
 
         .profile-overlay {
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: var(--transition);
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+            padding: 30px;
+            transform: translateY(100%);
+            transition: all 0.5s ease;
         }
 
         .profile-container:hover .profile-overlay {
-            opacity: 1;
+            transform: translateY(0);
         }
 
         .profile-text {
             color: white;
             text-align: center;
-            padding: 20px;
         }
 
         .profile-text h3 {
             color: white;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .gpa-badge {
             display: inline-block;
-            background: var(--primary);
+            background: var(--bg-gradient);
             color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
+            padding: 5px 18px;
+            border-radius: 30px;
             font-size: 13px;
             font-weight: 600;
             margin-top: 15px;
@@ -414,215 +423,328 @@
 
         /* Skills Section */
         .skills {
-            background: var(--light);
+            background: var(--bg-color);
         }
 
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
         }
 
         .skill-category {
             background: var(--card-bg);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s ease;
+            border: 1px solid var(--border-light);
         }
 
         .skill-category:hover {
             transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: var(--glow);
         }
 
         .skill-category h3 {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: var(--primary);
+            font-size: 1.5rem;
         }
 
         .skill-item {
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         .skill-info {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            font-weight: 500;
         }
 
         .skill-bar {
-            height: 10px;
-            background: #e0e0e0;
-            border-radius: 5px;
+            height: 8px;
+            background: var(--border-light);
+            border-radius: 10px;
             overflow: hidden;
         }
 
         .skill-progress {
             height: 100%;
-            background: var(--primary);
-            border-radius: 5px;
+            background: var(--bg-gradient);
+            border-radius: 10px;
             width: 0;
             transition: width 1.5s ease;
         }
 
-        /* Projects Section - Horizontal Scroll - 1 Row Only */
-        .projects-section {
-            position: relative;
-            overflow: hidden;
+        /* Certifications Section - Horizontal Scroll (no visible scrollbar) */
+        .certifications {
+            background: var(--card-bg);
         }
 
-        .projects-scroll-container {
-            position: relative;
-            margin: 20px 0;
+        .cert-scroll-container {
+            overflow-x: auto;
+            overflow-y: visible;
+            cursor: grab;
+            padding: 10px 0 20px 0;
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
 
-        .projects-grid {
+        .cert-scroll-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .cert-grid {
             display: flex;
             gap: 30px;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            padding: 10px 5px 30px 5px;
-            scrollbar-width: thin;
-            cursor: grab;
+            width: max-content;
+            padding: 10px 20px;
         }
 
-        .projects-grid:active {
-            cursor: grabbing;
-        }
-
-        .projects-grid::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .projects-grid::-webkit-scrollbar-track {
-            background: var(--border-light);
-            border-radius: 10px;
-        }
-
-        .projects-grid::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 10px;
-        }
-
-        .scroll-btn {
-            position: absolute;
-            top: 45%;
-            transform: translateY(-50%);
-            width: 40px;
-            height: 40px;
-            background: var(--card-bg);
+        .cert-card {
+            min-width: 280px;
+            flex-shrink: 0;
+            background: var(--bg-color);
+            border-radius: 20px;
+            overflow: hidden;
             border: 1px solid var(--border-light);
+            transition: all 0.4s ease;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: var(--glow);
+        }
+
+        .cert-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--bg-gradient);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            transition: var(--transition);
-            z-index: 10;
-            color: var(--primary);
-            font-size: 18px;
-        }
-
-        .scroll-btn:hover {
-            background: var(--primary);
+            margin: 0 auto 20px;
+            font-size: 30px;
             color: white;
-            border-color: var(--primary);
-            transform: translateY(-50%) scale(1.1);
         }
 
-        .scroll-left {
-            left: -20px;
+        .cert-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            background: var(--border-light);
         }
 
-        .scroll-right {
-            right: -20px;
+        .cert-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
         }
 
-        /* Project Card - Image Expand on Hover (Like Your Example) */
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
+        .cert-card p {
+            color: var(--text-color);
+            opacity: 0.8;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .cert-card .cert-date {
+            font-size: 12px;
+            color: var(--primary);
+            font-style: italic;
+        }
+
+        /* Projects Section - Horizontal Scroll (no visible scrollbar) */
+        .projects-section {
+            background: var(--bg-color);
             position: relative;
-            min-width: 320px;
-            max-width: 320px;
-            flex-shrink: 0;
+            overflow: visible;
+        }
+
+        .projects-scroll-container {
+            position: relative;
+            margin-top: 30px;
+        }
+
+        .projects-container {
+            overflow-x: auto;
+            overflow-y: visible;
+            white-space: nowrap;
+            scroll-behavior: smooth;
+            padding: 25px 0 40px 0;
+            cursor: grab;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .projects-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .projects-wrapper {
+            display: flex;
+            gap: 18px;
+            padding: 10px 20px;
+        }
+
+        /* Project Card - Expand on Hover */
+        .project-card {
+            width: 130px;
+            min-width: 130px;
+            height: 380px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid var(--border-light);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            cursor: pointer;
+            box-shadow: var(--card-shadow);
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            width: 320px;
+            min-width: 320px;
+            border-color: var(--primary);
+            box-shadow: var(--glow);
+            z-index: 100;
         }
 
         .project-image {
-            height: 220px;
-            overflow: hidden;
+            width: 100%;
+            height: 100%;
             position: relative;
+            overflow: hidden;
         }
 
         .project-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: all 0.5s ease-in-out;
+            transition: transform 0.5s ease;
         }
 
-        /* Image Expand Effect on Hover - Like Your Example */
         .project-card:hover .project-image img {
-            transform: scale(1.15);
+            transform: scale(1.08);
         }
 
-        .project-content {
-            padding: 20px;
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
+            padding: 25px;
+            transform: translateY(100%);
+            transition: transform 0.5s ease;
+            white-space: normal;
         }
 
-        .project-content h3 {
-            margin-bottom: 10px;
-            color: var(--primary);
+        .project-card:hover .project-overlay {
+            transform: translateY(0);
         }
 
-        .project-content p {
-            margin-bottom: 15px;
-            color: var(--text-color);
-            font-size: 14px;
-            line-height: 1.5;
+        .project-overlay h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .project-overlay p {
+            color: #cbd5e1;
+            font-size: 12px;
+            margin-bottom: 12px;
+            line-height: 1.4;
         }
 
         .project-links {
             display: flex;
             gap: 10px;
-            flex-wrap: wrap;
         }
 
         .project-links a {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            padding: 8px 15px;
-            background: var(--primary);
+            gap: 6px;
+            padding: 6px 14px;
+            background: var(--bg-gradient);
             color: white;
-            border-radius: 5px;
+            border-radius: 30px;
             text-decoration: none;
-            font-size: 0.9rem;
-            transition: var(--transition);
+            font-size: 11px;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
 
         .project-links a:hover {
-            background: var(--primary-dark);
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
-        .project-links a i {
-            margin-right: 5px;
+        /* Scroll Buttons */
+        .scroll-btn {
+            position: absolute;
+            top: 45%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background: var(--card-bg);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 200;
+            color: var(--primary);
+            font-size: 20px;
+            box-shadow: var(--card-shadow);
         }
 
-        /* Experience Section */
-        .experience {
-            background: var(--light);
+        .scroll-btn:hover {
+            background: var(--bg-gradient);
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+            border-color: transparent;
         }
 
+        .scroll-left {
+            left: -10px;
+        }
+
+        .scroll-right {
+            right: -10px;
+        }
+
+        /* CV Download */
+        .cv-download {
+            text-align: center;
+            margin: 40px 0 20px;
+        }
+
+        .cv-btn {
+            background: var(--bg-gradient);
+            color: white;
+            padding: 14px 40px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Timeline (Experience) */
         .timeline {
             position: relative;
             max-width: 800px;
@@ -632,12 +754,12 @@
         .timeline::after {
             content: '';
             position: absolute;
-            width: 4px;
-            background: var(--primary);
+            width: 3px;
+            background: var(--bg-gradient);
             top: 0;
             bottom: 0;
             left: 50%;
-            margin-left: -2px;
+            margin-left: -1.5px;
         }
 
         .timeline-item {
@@ -645,8 +767,8 @@
             position: relative;
             width: 50%;
             opacity: 0;
-            transform: translateY(20px);
-            transition: var(--transition);
+            transform: translateY(30px);
+            transition: all 0.6s ease;
         }
 
         .timeline-item.visible {
@@ -654,106 +776,108 @@
             transform: translateY(0);
         }
 
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
+        .timeline-item:nth-child(odd) { left: 0; }
+        .timeline-item:nth-child(even) { left: 50%; }
 
         .timeline-content {
-            padding: 20px;
+            padding: 25px;
             background: var(--card-bg);
-            border-radius: 10px;
-            box-shadow: var(--shadow);
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
             position: relative;
+            border: 1px solid var(--border-light);
+        }
+
+        .timeline-content:hover {
+            border-color: var(--primary);
         }
 
         .timeline-content::after {
             content: '';
             position: absolute;
-            width: 20px;
-            height: 20px;
-            right: -10px;
+            width: 18px;
+            height: 18px;
+            right: -9px;
             background: var(--card-bg);
             top: 20px;
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-        .timeline-item:nth-child(odd) .timeline-content::after {
-            right: -10px;
-            box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+            transform: rotate(45deg);
+            border-right: 1px solid var(--border-light);
+            border-top: 1px solid var(--border-light);
         }
 
         .timeline-item:nth-child(even) .timeline-content::after {
-            left: -10px;
-            box-shadow: -1px 1px 0px rgba(0, 0, 0, 0.1);
+            left: -9px;
+            right: auto;
+            border-left: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+            border-right: none;
+            border-top: none;
         }
 
         .timeline-item::after {
             content: '';
             position: absolute;
-            width: 20px;
-            height: 20px;
-            background: var(--primary);
-            border: 4px solid var(--card-bg);
+            width: 18px;
+            height: 18px;
+            background: var(--bg-gradient);
             border-radius: 50%;
-            top: 20px;
+            top: 25px;
             z-index: 1;
+            box-shadow: var(--glow);
         }
 
-        .timeline-item:nth-child(odd)::after {
-            right: -10px;
-        }
+        .timeline-item:nth-child(odd)::after { right: -9px; }
+        .timeline-item:nth-child(even)::after { left: -9px; }
 
-        .timeline-item:nth-child(even)::after {
-            left: -10px;
-        }
-
-        /* Education Section */
+        /* Education Section (Only Bachelor) */
         .education {
             background: var(--card-bg);
         }
 
         .education-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .education-item {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
+            background: var(--bg-color);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s ease;
+            border: 1px solid var(--border-light);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
         }
 
         .education-item:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: var(--glow);
         }
 
         .education-item h3 {
             color: var(--primary);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .education-item .date {
-            color: var(--gray);
+            color: var(--primary-light);
             font-style: italic;
             margin-bottom: 15px;
+            font-weight: 500;
         }
 
         /* Contact Section */
         .contact {
-            background: var(--light);
+            background: var(--bg-color);
         }
 
         .contact-content {
             display: flex;
-            gap: 50px;
+            gap: 60px;
         }
 
         .contact-info {
@@ -762,29 +886,36 @@
 
         .contact-item {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 25px;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+            border-left: 3px solid var(--primary);
         }
 
         .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
+            width: 55px;
+            height: 55px;
+            background: var(--bg-gradient);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 15px;
+            margin-right: 18px;
             color: white;
-            font-size: 1.2rem;
-        }
-
-        .contact-details h3 {
-            margin-bottom: 5px;
+            font-size: 1.3rem;
+            box-shadow: var(--glow);
         }
 
         .social-links {
             display: flex;
+            gap: 15px;
             margin-top: 20px;
         }
 
@@ -792,19 +923,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
+            width: 45px;
+            height: 45px;
+            background: var(--bg-gradient);
             color: white;
             border-radius: 50%;
-            margin-right: 10px;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             text-decoration: none;
+            font-size: 1.2rem;
         }
 
         .social-links a:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px);
+            transform: translateY(-5px);
+            box-shadow: var(--glow);
         }
 
         .contact-form {
@@ -817,11 +948,11 @@
 
         .form-control {
             width: 100%;
-            padding: 12px 15px;
+            padding: 14px 20px;
             border: 1px solid var(--border-light);
-            border-radius: 5px;
+            border-radius: 12px;
             font-family: 'Poppins', sans-serif;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             background: var(--card-bg);
             color: var(--text-color);
         }
@@ -829,19 +960,19 @@
         .form-control:focus {
             border-color: var(--primary);
             outline: none;
-            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+            box-shadow: var(--glow);
         }
 
         textarea.form-control {
-            min-height: 150px;
+            min-height: 140px;
             resize: vertical;
         }
 
         /* Footer */
         footer {
-            background: var(--secondary);
-            color: white;
-            padding: 50px 0 20px;
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-light);
+            padding: 50px 0 25px;
         }
 
         .footer-content {
@@ -852,90 +983,42 @@
         }
 
         .footer-logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-
-        .footer-logo span {
-            color: var(--primary);
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: var(--bg-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .copyright {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 25px;
+            border-top: 1px solid var(--border-light);
+            color: var(--text-color);
+            opacity: 0.7;
         }
 
         /* Animations */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .hero h2 {
-                font-size: 1.5rem;
-            }
-            
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .contact-content {
-                flex-direction: column;
-            }
-            
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-            
-            .timeline-item::after {
-                left: 21px;
-            }
-            
-            .timeline-item:nth-child(odd) .timeline-content::after,
-            .timeline-item:nth-child(even) .timeline-content::after {
-                left: -10px;
-            }
+            .hero h1 { font-size: 3rem; }
+            .about-content { flex-direction: column; }
+            .contact-content { flex-direction: column; }
+            .timeline::after { left: 20px; }
+            .timeline-item { width: 100%; padding-left: 55px; padding-right: 20px; }
+            .timeline-item:nth-child(even) { left: 0; }
+            .timeline-item::after { left: 11px !important; right: auto !important; }
+            .timeline-content::after { display: none; }
         }
 
         @media (max-width: 768px) {
-            .navbar {
-                padding: 15px 0;
-            }
-            
+            .navbar { padding: 15px 0; }
             .nav-links {
                 position: fixed;
                 top: 70px;
@@ -945,101 +1028,54 @@
                 background: var(--card-bg);
                 flex-direction: column;
                 align-items: center;
-                justify-content: flex-start;
-                padding-top: 50px;
-                transition: var(--transition);
-                box-shadow: var(--shadow);
-            }
-            
-            .nav-links.active {
-                left: 0;
-            }
-            
-            .nav-links li {
-                margin: 15px 0;
-            }
-            
-            .hamburger {
-                display: block;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero h2 {
-                font-size: 1.3rem;
-            }
-            
-            .hero-image {
-                display: none;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .footer-content .social-links {
-                margin-top: 20px;
                 justify-content: center;
+                gap: 30px;
+                transition: left 0.3s ease;
+                z-index: 999;
             }
-            
-            .scroll-btn {
-                display: none;
-            }
-            
-            .project-card {
-                min-width: 280px;
-            }
+            .nav-links.active { left: 0; }
+            .nav-links li { margin: 0; }
+            .hamburger { display: block; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero h2 { font-size: 1.3rem; }
+            .footer-content { flex-direction: column; gap: 20px; text-align: center; }
+            .scroll-btn { display: none; }
+            .project-card { width: 110px; min-width: 110px; height: 340px; }
+            .project-card:hover { width: 260px; min-width: 260px; }
+            .profile-image { width: 280px; height: 360px; }
         }
 
         @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .btn {
-                padding: 10px 20px;
-                font-size: 0.9rem;
-            }
-            
-            .project-card {
-                min-width: 260px;
-            }
+            section { padding: 60px 0; }
+            .hero h1 { font-size: 1.8rem; }
+            .section-title { font-size: 1.8rem; }
+            .project-card { width: 90px; min-width: 90px; height: 300px; }
+            .project-card:hover { width: 220px; min-width: 220px; }
         }
     </style>
 </head>
 <body class="light-theme">
-    <!-- Header -->
     <header id="header">
         <div class="container">
             <nav class="navbar">
-                <a href="#" class="logo">Sammad<span> Siddiqui</span></a>
+                <a href="#" class="logo">Sammad<span></span></a>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#education">Education</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li class="theme-toggle">
-                        <div class="theme-toggle-btn active" data-theme="light">
-                            <i class="fas fa-sun"></i>
-                        </div>
-                        <div class="theme-toggle-btn" data-theme="dark">
-                            <i class="fas fa-moon"></i>
+                    <li>
+                        <div class="theme-toggle">
+                            <div class="theme-toggle-btn active" data-theme="light"><i class="fas fa-sun"></i></div>
+                            <div class="theme-toggle-btn" data-theme="dark"><i class="fas fa-moon"></i></div>
                         </div>
                     </li>
                 </ul>
-                <div class="hamburger">
-                    <i class="fas fa-bars"></i>
-                </div>
+                <div class="hamburger"><i class="fas fa-bars"></i></div>
             </nav>
         </div>
     </header>
@@ -1053,17 +1089,9 @@
                 <p>Computer Science student (8th Semester, CGPA: 3.38/4) specializing in Web development, Application development, Database administration, and AI/ML.</p>
                 <div class="hero-btns">
                     <a href="#contact" class="btn">Get In Touch</a>
-                    <a href="#projects" class="btn" style="background: transparent; color: var(--primary); border: 2px solid var(--primary);">View Projects</a>
+                    <a href="#projects" class="btn btn-secondary">View Projects</a>
+                    <a href="#" class="btn btn-secondary" id="downloadCV"><i class="fas fa-download"></i> Download CV</a>
                 </div>
-            </div>
-            <div class="hero-image">
-                <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="250" cy="250" r="200" fill="var(--primary)" opacity="0.1"/>
-                    <circle cx="250" cy="250" r="150" fill="var(--primary)" opacity="0.2"/>
-                    <circle cx="250" cy="250" r="100" fill="var(--primary)" opacity="0.3"/>
-                    <path d="M250,100 L300,250 L250,400 L200,250 Z" fill="var(--primary)" opacity="0.7"/>
-                    <circle cx="250" cy="250" r="30" fill="var(--secondary)"/>
-                </svg>
             </div>
         </div>
     </section>
@@ -1076,22 +1104,14 @@
                 <div class="about-text">
                     <p>As a proficient Front End Developer, Database Administrator, and App Developer, I specialize in developing websites using HTML, CSS, JavaScript, PHP, and React, and building scalable applications using Java, Kotlin, and Flutter.</p>
                     <p>I'm currently in my 8th semester of B.S. Computer Science at Quaid-e-Awam University of Engineering, Science and Technology (CGPA: 3.38/4), and I'm passionate about creating digital solutions that make a difference.</p>
-                    <div class="about-details">
-                        <div class="detail-item">
-                            <strong>📍 Location:</strong> Nawabshah, Sindh, Pakistan
-                        </div>
-                        <div class="detail-item">
-                            <strong>📧 Email:</strong> sammadulhassan02@gmail.com
-                        </div>
-                        <div class="detail-item">
-                            <strong>📞 Phone:</strong> 03173212244
-                        </div>
-                        <div class="detail-item">
-                            <strong>🎓 CGPA:</strong> 3.38/4
-                        </div>
+                    <div style="margin-top: 20px;">
+                        <div><strong>📍 Location:</strong> Nawabshah, Sindh, Pakistan</div>
+                        <div><strong>📧 Email:</strong> sammadulhassan02@gmail.com</div>
+                        <div><strong>📞 Phone:</strong> 03173212244</div>
+                        <div><strong>🎓 CGPA:</strong> 3.38/4</div>
                     </div>
                     <span class="gpa-badge">🌟 8th Semester Student</span>
-                    <a href="#projects" class="btn" style="margin-top: 20px;">View My Projects</a>
+                    <a href="#projects" class="btn" style="margin-top: 25px; display: inline-block;">View My Projects</a>
                 </div>
                 <div class="about-image">
                     <div class="profile-container">
@@ -1103,12 +1123,8 @@
                                 <h3>Sammad Ul Hassan</h3>
                                 <p>Web & App Developer</p>
                                 <div class="social-links">
-                                    <a href="https://linkedin.com/in/sammadulhassan-siddiqui-49b85a347" target="_blank">
-                                        <i class="fab fa-linkedin-in"></i>
-                                    </a>
-                                    <a href="https://github.com/sammad1224pak" target="_blank">
-                                        <i class="fab fa-github"></i>
-                                    </a>
+                                    <a href="https://linkedin.com/in/sammadulhassan-siddiqui-49b85a347" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="https://github.com/sammad1224pak" target="_blank"><i class="fab fa-github"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -1121,212 +1137,110 @@
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title">My Skills</h2>
+            <h2 class="section-title">Technical Skills</h2>
             <div class="skills-container">
                 <div class="skill-category">
                     <h3>Frontend Development</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>HTML/CSS</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="85"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>JavaScript</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="75"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>React/PHP</span>
-                            <span>65%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="65"></div>
-                        </div>
-                    </div>
+                    <div class="skill-item"><div class="skill-info"><span>HTML/CSS</span><span>85%</span></div><div class="skill-bar"><div class="skill-progress" data-width="85"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>JavaScript</span><span>75%</span></div><div class="skill-bar"><div class="skill-progress" data-width="75"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>React/PHP</span><span>65%</span></div><div class="skill-bar"><div class="skill-progress" data-width="65"></div></div></div>
                 </div>
                 <div class="skill-category">
                     <h3>App Development</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Java/Kotlin</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="75"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Flutter</span>
-                            <span>65%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="65"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>C#</span>
-                            <span>70%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="70"></div>
-                        </div>
-                    </div>
+                    <div class="skill-item"><div class="skill-info"><span>Java/Kotlin</span><span>75%</span></div><div class="skill-bar"><div class="skill-progress" data-width="75"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Flutter</span><span>65%</span></div><div class="skill-bar"><div class="skill-progress" data-width="65"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>C#</span><span>70%</span></div><div class="skill-bar"><div class="skill-progress" data-width="70"></div></div></div>
                 </div>
                 <div class="skill-category">
                     <h3>Database & AI/ML</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>MySQL/SQL Server</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="75"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Python</span>
-                            <span>70%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="70"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>YOLOv8/AI Basics</span>
-                            <span>60%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="60"></div>
-                        </div>
-                    </div>
+                    <div class="skill-item"><div class="skill-info"><span>MySQL/SQL Server</span><span>75%</span></div><div class="skill-bar"><div class="skill-progress" data-width="75"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Python</span><span>70%</span></div><div class="skill-bar"><div class="skill-progress" data-width="70"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>YOLOv8/AI Basics</span><span>60%</span></div><div class="skill-bar"><div class="skill-progress" data-width="60"></div></div></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section - Horizontal Scroll 1 Row -->
-    <section id="projects" class="projects">
+    <!-- Certifications Section - Horizontal Scroll (3 items) -->
+    <section id="certifications" class="certifications">
         <div class="container">
+            <h2 class="section-title">Certifications </h2>
+            <div class="cert-scroll-container">
+                <div class="cert-grid">
+                    <div class="cert-card">
+                        <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+                        <img src="web dev.png" alt="Web Development" class="cert-img" onerror="this.src='https://placehold.co/400x200/2563eb/white?text=Web+Development'">
+                        <h3>Web Development</h3>
+                        <p>Professional certification in Modern Web Development (HTML, CSS, JS, React, PHP).</p>
+                        <div class="cert-date">Issued: 2025</div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-icon"><i class="fas fa-database"></i></div>
+                        <img src="Databae administrator.pdf" alt="Database Admin" class="cert-img" onerror="this.src='https://placehold.co/400x200/2563eb/white?text=Database+Admin'">
+                        <h3>Database Administrator</h3>
+                        <p>Certification in MySQL, SQL Server, and Database Design.</p>
+                        <div class="cert-date">Issued: 2024</div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <img src="app-dev-cert.png" alt="App Development" class="cert-img" onerror="this.src='https://placehold.co/400x200/2563eb/white?text=App+Development'">
+                        <h3>App Development</h3>
+                        <p>Certification in Android & Flutter App Development (Java, Kotlin, Flutter).</p>
+                        <div class="cert-date">Issued: 2023</div>
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="cv-download">
+                <a href="#" class="btn cv-btn" id="downloadCV2"><i class="fas fa-download"></i> Download Full Resume / CV</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section - Horizontal Scroll (Expand on Hover) -->
+    <section id="projects" class="projects-section">
+        <div class="container projects-header">
             <h2 class="section-title">My Projects</h2>
             <div class="projects-scroll-container">
-                <div class="scroll-btn scroll-left" id="scrollLeft">
-                    <i class="fas fa-chevron-left"></i>
-                </div>
-                <div class="projects-grid" id="projectsGrid">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500" alt="Portfolio">
+                <button class="scroll-btn scroll-left" id="scrollLeft"><i class="fas fa-chevron-left"></i></button>
+                <button class="scroll-btn scroll-right" id="scrollRight"><i class="fas fa-chevron-right"></i></button>
+                <div class="projects-container" id="projectsContainer">
+                    <div class="projects-wrapper">
+                        <div class="project-card">
+                            <div class="project-image"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500" alt="Portfolio"></div>
+                            <div class="project-overlay"><h3>Personal Portfolio</h3><p>Responsive portfolio website.</p><div class="project-links"><a href="https://sammad1224pak.github.io/Portfolio/" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a><a href="https://github.com/sammad1224pak/Portfolio" target="_blank"><i class="fab fa-github"></i> Code</a></div></div>
                         </div>
-                        <div class="project-content">
-                            <h3>Personal Portfolio</h3>
-                            <p>Responsive portfolio website showcasing my skills, projects, and experience.</p>
-                            <div class="project-links">
-                                <a href="https://sammad1224pak.github.io/Portfolio/" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
-                                <a href="https://github.com/sammad1224pak/Portfolio" target="_blank"><i class="fab fa-github"></i> Code</a>
-                            </div>
+                        <div class="project-card">
+                            <div class="project-image"><img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=500" alt="Desktop Assistant"></div>
+                            <div class="project-overlay"><h3>Desktop Assistant</h3><p>Smart voice assistant for PC.</p><div class="project-links"><a href="https://github.com/sammad1224pak" target="_blank"><i class="fab fa-github"></i> Code</a></div></div>
                         </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=500" alt="Desktop Assistant">
+                        <div class="project-card">
+                            <div class="project-image"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500" alt="Recipe Gallery"></div>
+                            <div class="project-overlay"><h3>Recipe Gallery</h3><p>Search & filter recipes.</p><div class="project-links"><a href="https://sammad1224pak.github.io/Recipe-Gallery/" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a><a href="https://github.com/sammad1224pak/Recipe-Gallery" target="_blank"><i class="fab fa-github"></i> Code</a></div></div>
                         </div>
-                        <div class="project-content">
-                            <h3>Desktop Assistant</h3>
-                            <p>Smart desktop assistant for executing commands, opening apps, and system tasks.</p>
-                            <div class="project-links">
-                                <a href="https://github.com/sammad1224pak" target="_blank"><i class="fab fa-github"></i> Code</a>
-                            </div>
+                        <!-- School Management - New image -->
+                        <div class="project-card">
+                            <div class="project-image"><img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=500" alt="School Management System"></div>
+                            <div class="project-overlay"><h3>School Management</h3><p>Student & admin dashboard with SQL.</p><div class="project-links"><a href="https://github.com/sammad1224pak" target="_blank"><i class="fab fa-github"></i> Code</a></div></div>
                         </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500" alt="Recipe Gallery">
+                        <div class="project-card">
+                            <div class="project-image"><img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=500" alt="Coffee Shop"></div>
+                            <div class="project-overlay"><h3>Coffee Shop</h3><p>Responsive menu website.</p><div class="project-links"><a href="https://sammad1224pak.github.io/cofee-website/" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a><a href="https://github.com/sammad1224pak" target="_blank"><i class="fab fa-github"></i> Code</a></div></div>
+                           
                         </div>
-                        <div class="project-content">
-                            <h3>Recipe Gallery</h3>
-                            <p>Recipe website with categorized recipes, search, and clean UI.</p>
-                            <div class="project-links">
-                                <a href="https://sammad1224pak.github.io/Recipe-Gallery/" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
-                                <a href="https://github.com/sammad1224pak/Recipe-Gallery" target="_blank"><i class="fab fa-github"></i> Code</a>
-                            </div>
+                        <div class="project-card">
+                            <div class="project-image"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500" alt="Health Monitor"></div>
+                            <div class="project-overlay"><h3>Health Monitor</h3><p>Flutter + SQLite health tracker.</p><div class="project-links"><a href="https://github.com/sammad1224pak" target="_blank"><i class="fab fa-github"></i> Code</a></div></div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-image"><img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=500" alt="Hazard Detection"></div>
+                            <div class="project-overlay"><h3>Hazard Detection</h3><p>YOLOv8 real-time detection.</p><div class="project-links"><a href="https://github.com/sammad1224pak" target="_blank"><i class="fab fa-github"></i> Code</a></div></div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-image"><img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=500" alt="AI Skill Gap"></div>
+                            <div class="project-overlay"><h3>AI Skill Gap Analysis</h3><p>Analyzes skills vs industry needs.</p><div class="project-links"><a href="https://github.com/sammad1224pak" target="_blank"><i class="fab fa-github"></i> Code</a></div></div>
                         </div>
                     </div>
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=500" alt="School Management">
-                        </div>
-                        <div class="project-content">
-                            <h3>School Management System</h3>
-                            <p>System with student records, teacher portal, and admin dashboard.</p>
-                            <div class="project-links">
-                                <a href="https://github.com/sammad1224pak" target="_blank"><i class="fab fa-github"></i> Code</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=500" alt="Coffee Shop">
-                        </div>
-                        <div class="project-content">
-                            <h3>Coffee Shop Website</h3>
-                            <p>Fully responsive coffee shop website with menu and product listings.</p>
-                            <div class="project-links">
-                                <a href="https://github.com/sammad1224pak" target="_blank"><i class="fab fa-github"></i> Code</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500" alt="Health Monitor">
-                        </div>
-                        <div class="project-content">
-                            <h3>Health Monitoring App</h3>
-                            <p>Health app to check vitals and track activity with Flutter & SQLite.</p>
-                            <div class="project-links">
-                                <a href="https://github.com/sammad1224pak" target="_blank"><i class="fab fa-github"></i> Code</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=500" alt="Hazard Detection">
-                        </div>
-                        <div class="project-content">
-                            <h3>Real-time Hazard Detection</h3>
-                            <p>YOLOv8 model for real-time object detection and safety monitoring.</p>
-                            <div class="project-links">
-                                <a href="https://github.com/sammad1224pak" target="_blank"><i class="fab fa-github"></i> Code</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?w=500" alt="Product Landing">
-                        </div>
-                        <div class="project-content">
-                            <h3>Product Landing Page</h3>
-                            <p>Modern landing page with features and call-to-action sections.</p>
-                            <div class="project-links">
-                                <a href="https://github.com/sammad1224pak" target="_blank"><i class="fab fa-github"></i> Code</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="scroll-btn scroll-right" id="scrollRight">
-                    <i class="fas fa-chevron-right"></i>
                 </div>
             </div>
         </div>
@@ -1335,45 +1249,26 @@
     <!-- Experience Section -->
     <section id="experience" class="experience">
         <div class="container">
-            <h2 class="section-title">Work Experience</h2>
+            <h2 class="section-title">Experience</h2>
             <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Front End Developer</h3>
-                        <p>6+ months experience in Front End Development and App Development.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Desktop Application Developer</h3>
-                        <p>Travel Agency application using C# and Database management.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>AI/ML - Hazard Detection</h3>
-                        <p>Real-time hazard detection using YOLOv8 model training.</p>
-                    </div>
-                </div>
+                <div class="timeline-item"><div class="timeline-content"><h3>Front End Developer</h3><p>6+ months experience in Front End and App Development.</p></div></div>
+                <div class="timeline-item"><div class="timeline-content"><h3>Desktop Application Developer</h3><p>Travel Agency app using C# and DBMS.</p></div></div>
+                <div class="timeline-item"><div class="timeline-content"><h3>AI/ML - Hazard Detection</h3><p>YOLOv8 model training & deployment.</p></div></div>
+                <div class="timeline-item"><div class="timeline-content"><h3>Flutter Developer</h3><p>Health monitoring app with SQLite.</p></div></div>
             </div>
         </div>
     </section>
 
-    <!-- Education Section -->
+    <!-- Education Section (Only Bachelor) -->
     <section id="education" class="education">
         <div class="container">
             <h2 class="section-title">Education</h2>
             <div class="education-content">
                 <div class="education-item">
                     <h3>B.S Computer Science (BSCS)</h3>
-                    <div class="date">2022 - 2026 (8th Semester)</div>
-                    <p>Quaid-e-Awam University of Engineering, Science and Technology</p>
-                    <p>CGPA: 3.38/4 | Batch 22</p>
-                </div>
-                <div class="education-item">
-                    <h3>Higher Secondary School (XII)</h3>
-                    <div class="date">2021</div>
-                    <p>Government Boys Degree College Nawabshah</p>
+                    <div class="date">2022 - 2026 | 8th Semester</div>
+                    <p>Quaid-e-Awam University of Engineering, Science & Technology</p>
+                    <p><strong>CGPA: 3.38/4</strong> | Batch 22</p>
                 </div>
             </div>
         </div>
@@ -1385,27 +1280,9 @@
             <h2 class="section-title">Get In Touch</h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div class="contact-details">
-                            <h3>Location</h3>
-                            <p>Nawabshah, Sindh, Pakistan</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                        <div class="contact-details">
-                            <h3>Email</h3>
-                            <p>sammadulhassan02@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                        <div class="contact-details">
-                            <h3>Phone</h3>
-                            <p>03173212244</p>
-                        </div>
-                    </div>
+                    <div class="contact-item"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div><h3>Location</h3><p>Nawabshah, Sindh, Pakistan</p></div></div>
+                    <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><h3>Email</h3><p>sammadulhassan02@gmail.com</p></div></div>
+                    <div class="contact-item"><div class="contact-icon"><i class="fas fa-phone"></i></div><div><h3>Phone</h3><p>03173212244</p></div></div>
                     <div class="social-links">
                         <a href="https://linkedin.com/in/sammadulhassan-siddiqui-49b85a347" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                         <a href="https://github.com/sammad1224pak" target="_blank"><i class="fab fa-github"></i></a>
@@ -1413,18 +1290,10 @@
                 </div>
                 <div class="contact-form">
                     <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Subject" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control" placeholder="Your Message" required></textarea>
-                        </div>
+                        <div class="form-group"><input type="text" class="form-control" placeholder="Your Name" required></div>
+                        <div class="form-group"><input type="email" class="form-control" placeholder="Your Email" required></div>
+                        <div class="form-group"><input type="text" class="form-control" placeholder="Subject" required></div>
+                        <div class="form-group"><textarea class="form-control" placeholder="Your Message" required></textarea></div>
                         <button type="submit" class="btn">Send Message</button>
                     </form>
                 </div>
@@ -1436,29 +1305,25 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">Sammad<span> Siddiqui</span></div>
+                <div class="footer-logo">Sammad Siddiqui</div>
                 <div class="social-links">
                     <a href="https://linkedin.com/in/sammadulhassan-siddiqui-49b85a347" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                     <a href="https://github.com/sammad1224pak" target="_blank"><i class="fab fa-github"></i></a>
                 </div>
             </div>
-            <div class="copyright">
-                
-            </div>
+            <div class="copyright"><p> Sammad Ul Hassan</p></div>
         </div>
     </footer>
 
     <script>
-        // Mobile Navigation Toggle
+        // Mobile Navigation
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
-
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             hamburger.querySelector('i').classList.toggle('fa-bars');
             hamburger.querySelector('i').classList.toggle('fa-times');
         });
-
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
@@ -1470,16 +1335,12 @@
         // Header scroll effect
         window.addEventListener('scroll', () => {
             const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
         });
 
-        // Animate skill bars
+        // Skill bars animation
         const skillBars = document.querySelectorAll('.skill-progress');
-        
         function animateSkillBars() {
             skillBars.forEach(bar => {
                 const barPosition = bar.getBoundingClientRect().top;
@@ -1490,31 +1351,18 @@
                 }
             });
         }
-
-        // Animate timeline items
         const timelineItems = document.querySelectorAll('.timeline-item');
-        
         function animateTimelineItems() {
             timelineItems.forEach(item => {
                 const itemPosition = item.getBoundingClientRect().top;
                 const screenPosition = window.innerHeight / 1.3;
-                if (itemPosition < screenPosition) {
-                    item.classList.add('visible');
-                }
+                if (itemPosition < screenPosition) item.classList.add('visible');
             });
         }
+        window.addEventListener('load', () => { animateSkillBars(); animateTimelineItems(); });
+        window.addEventListener('scroll', () => { animateSkillBars(); animateTimelineItems(); });
 
-        window.addEventListener('load', () => {
-            animateSkillBars();
-            animateTimelineItems();
-        });
-
-        window.addEventListener('scroll', () => {
-            animateSkillBars();
-            animateTimelineItems();
-        });
-
-        // Form submission
+        // Contact form submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Thank you for your message! I will get back to you soon.');
@@ -1523,7 +1371,6 @@
 
         // Theme Toggle
         const themeBtns = document.querySelectorAll('.theme-toggle-btn');
-        
         themeBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const theme = btn.getAttribute('data-theme');
@@ -1539,7 +1386,6 @@
                 localStorage.setItem('portfolioTheme', theme);
             });
         });
-
         const savedTheme = localStorage.getItem('portfolioTheme');
         if (savedTheme === 'dark') {
             document.body.classList.remove('light-theme');
@@ -1548,48 +1394,66 @@
             document.querySelector('.theme-toggle-btn[data-theme="light"]')?.classList.remove('active');
         }
 
-        // Horizontal Scroll for Projects (1 Row)
-        const projectsGrid = document.getElementById('projectsGrid');
-        const scrollLeftBtn = document.getElementById('scrollLeft');
-        const scrollRightBtn = document.getElementById('scrollRight');
+        // Silent CV Download
+        function downloadCV() {
+            const link = document.createElement('a');
+            link.href = 'CV.pdf';
+            link.download = 'Sammad_Ul_Hassan_CV.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+        document.getElementById('downloadCV')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            downloadCV();
+        });
+        document.getElementById('downloadCV2')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            downloadCV();
+        });
 
-        if (scrollLeftBtn && scrollRightBtn && projectsGrid) {
-            scrollLeftBtn.addEventListener('click', () => {
-                projectsGrid.scrollBy({ left: -350, behavior: 'smooth' });
-            });
-
-            scrollRightBtn.addEventListener('click', () => {
-                projectsGrid.scrollBy({ left: 350, behavior: 'smooth' });
-            });
-
-            // Mouse drag scroll
+        // Smooth drag scrolling for both containers
+        function makeScrollable(element) {
+            if (!element) return;
             let isDown = false;
-            let startX;
-            let scrollLeft;
-
-            projectsGrid.addEventListener('mousedown', (e) => {
+            let startX, scrollLeft;
+            element.addEventListener('mousedown', (e) => {
                 isDown = true;
-                projectsGrid.style.cursor = 'grabbing';
-                startX = e.pageX - projectsGrid.offsetLeft;
-                scrollLeft = projectsGrid.scrollLeft;
+                element.style.cursor = 'grabbing';
+                startX = e.pageX - element.offsetLeft;
+                scrollLeft = element.scrollLeft;
             });
-
-            projectsGrid.addEventListener('mouseleave', () => {
+            element.addEventListener('mouseleave', () => {
                 isDown = false;
-                projectsGrid.style.cursor = 'grab';
+                element.style.cursor = 'grab';
             });
-
-            projectsGrid.addEventListener('mouseup', () => {
+            element.addEventListener('mouseup', () => {
                 isDown = false;
-                projectsGrid.style.cursor = 'grab';
+                element.style.cursor = 'grab';
             });
-
-            projectsGrid.addEventListener('mousemove', (e) => {
+            element.addEventListener('mousemove', (e) => {
                 if (!isDown) return;
                 e.preventDefault();
-                const x = e.pageX - projectsGrid.offsetLeft;
-                const walk = (x - startX) * 2;
-                projectsGrid.scrollLeft = scrollLeft - walk;
+                const x = e.pageX - element.offsetLeft;
+                const walk = (x - startX) * 1.5;
+                element.scrollLeft = scrollLeft - walk;
+            });
+        }
+
+        const projectsContainer = document.getElementById('projectsContainer');
+        const certContainer = document.querySelector('.cert-scroll-container');
+        makeScrollable(projectsContainer);
+        if (certContainer) makeScrollable(certContainer);
+
+        // Scroll buttons for projects
+        const scrollLeftBtn = document.getElementById('scrollLeft');
+        const scrollRightBtn = document.getElementById('scrollRight');
+        if (scrollLeftBtn && scrollRightBtn && projectsContainer) {
+            scrollLeftBtn.addEventListener('click', () => {
+                projectsContainer.scrollBy({ left: -320, behavior: 'smooth' });
+            });
+            scrollRightBtn.addEventListener('click', () => {
+                projectsContainer.scrollBy({ left: 320, behavior: 'smooth' });
             });
         }
     </script>
